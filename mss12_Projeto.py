@@ -1143,5 +1143,3 @@ def menu(checarNivelAcesso):
                     return acesso()
 
 acesso()
-
-#criar busca de usuarios de forma ordenada
