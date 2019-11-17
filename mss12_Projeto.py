@@ -92,10 +92,9 @@ def escreveArq(usuarios):
 
 def criptografarUsuarios(usuarios):
     """
-    Essa função criptografa todos os usuáriosl, primeiro ela ler o arquivo que contem a chave publica e com essas chaves
+    Essa função criptografa todos os usuários, primeiro ela ler o arquivo que contem a chave publica e com essas chaves
     é possível efetuar a criptografia por meio de cáuculos, após criptografar todos usuários é chamada a função esreverArq
     e assim todos usuarios são escritos no arquivo usuarios.txt.
-
     """
     arquivo = open("chavePublica.txt","r")
     linhas = arquivo.readlines()
@@ -259,28 +258,39 @@ def cadastrar(usuarios):
     return acesso()
 
 def ordenarUsuarios(dicionario):
-   
-  listao = dicionario.items()
-  lista = []
-  dicionarioOrdenado = {}
-  for x in listao:
-    lista.append(x)
-    
-  for x in lista:
-    atual = 0
-    while atual < len(lista) - 1:
-      if (lista[atual] > lista[atual+1]):
-        temp = lista[atual]
-        lista[atual] = lista[atual+1]
-        lista[atual+1] = temp
-      atual = atual + 1
+    """
+    Essa função ordena o dicionário de usuários pelo nome de "A" a "Z" 
+    e retonrar o dicionário ordenado
+    """
+    listao = dicionario.items()
+    lista = []
+    dicionarioOrdenado = {}
+    for x in listao:
+        lista.append(x)
         
-  for x in lista:
-    dicionarioOrdenado[x[0]] = x[1]
-  
-  return dicionarioOrdenado
+    for x in lista:
+        atual = 0
+        while atual < len(lista) - 1:
+            if (lista[atual] > lista[atual+1]):
+                temp = lista[atual]
+                lista[atual] = lista[atual+1]
+                lista[atual+1] = temp
+            atual = atual + 1
+            
+    for x in lista:
+        dicionarioOrdenado[x[0]] = x[1]
+    
+    return dicionarioOrdenado
 
 def buscarUsuario(login): 
+    """
+    Essa função busca os usuários que estão cadastrados de duas formas:
+    Primeira forma ele busca todos usuários que estão no sistema e printa 
+    todas as informções de forma ordenada.
+    Segunda forma efetua a busca pelo login do usuário e se encontrado 
+    as informações são printadas na tela
+    """
+
     sair = False
     while sair == False:
         print(">>>Buca de usuário<<<""\n")
@@ -343,7 +353,12 @@ def buscarUsuario(login):
                 flag_2 = False
 
 def editarUsuario(login):
-
+    """
+    Essa função edita o nível de acesso e a senha dos usuários cadastrados, a edição só pode ser
+    feita pelo ADM ou por algum usuário que possui nível 2 de acesso.
+    Para que a edição seja iniciada é preciso saber o login do usuário assim que o login for encontrado
+    no sistema a aba de edição ira aparecer na tela.
+    """
     recebeUsuarios = lerArquivo()
     sair = False
     while sair == False:
@@ -405,6 +420,11 @@ def editarUsuario(login):
             sair_2 = True
              
 def removerUsuarios(login):
+    """
+    Essa função remove os usuários do sistema e apenas o ADM pode remover usuários.
+    Para remover é preciso saber o login do usuário após digitar o login e apertar enter
+    o usuário selecionado será removido.
+    """
     recebeUsuarios = lerArquivo()
     sair = False
     while sair == False:
@@ -449,7 +469,10 @@ def removerUsuarios(login):
             sair_2 = True
 
 def lerArquivoElementos():
-    
+    """
+    Essa função lê todos os elementos(informações dos livros) que estão salvos no arquivo elementos.txt
+    faz a descriptografia e retorna um dicionário para que outras funções usem esse dicionário.
+    """
     arquivoChaves = open("chavePrivada.txt", "r")
     linhasChaves = arquivoChaves.readlines()
     arquivoChaves.close()
@@ -519,7 +542,11 @@ def lerArquivoElementos():
     return elementos
 
 def criptografarElementos(elementos):
-
+    """
+    Essa função criptografa todos os elementos, primeiro ela ler o arquivo que contem a chave privada e com essas chaves
+    é possível efetuar a descriptografia por meio de cáuculos, após descriptografar todos os elementos os mesmos
+    são retornados em forma de dicionário para que outras funções possam utilizar esse dicionánario.
+    """
     arquivo = open("chavePublica.txt","r")
     linhas = arquivo.readlines()
     arquivo.close()
@@ -551,28 +578,35 @@ def criptografarElementos(elementos):
     return elementosEncriptado
 
 def ordenarElementos(dicionario):
-  
-  listao = dicionario.items()
-  lista = []
-  dicionarioOrdenado = {}
-  for x in listao:
-    lista.append(x)
-    
-  for x in lista:
-    atual = 0
-    while atual < len(lista) - 1:
-      if (lista[atual][1][0] > lista[atual+1][1][0]):
-        temp = lista[atual]
-        lista[atual] = lista[atual+1]
-        lista[atual+1] = temp
-      atual = atual + 1
+    """
+    Essa função ordena o dicionário de elementos pelo nome de "A" a "Z" 
+    e retonrar o dicionário ordenado
+    """
+    listao = dicionario.items()
+    lista = []
+    dicionarioOrdenado = {}
+    for x in listao:
+        lista.append(x)
         
-  for x in lista:
-    dicionarioOrdenado[x[0]] = x[1]
-  
-  return dicionarioOrdenado
+    for x in lista:
+        atual = 0
+        while atual < len(lista) - 1:
+            if (lista[atual][1][0] > lista[atual+1][1][0]):
+                temp = lista[atual]
+                lista[atual] = lista[atual+1]
+                lista[atual+1] = temp
+            atual = atual + 1
+            
+    for x in lista:
+        dicionarioOrdenado[x[0]] = x[1]
+    
+    return dicionarioOrdenado
 
 def escreveArqElementos(elementos):
+    """
+    Essa função recebe como parâmentro elementos que tem nele um conjunto de dicionários que serão escritos
+    no arquivo elementos.txt.
+    """
     arquivo = open("elementos.txt", "w")
     lista = elementos.items()
     
@@ -591,7 +625,10 @@ def escreveArqElementos(elementos):
     return elementos
 
 def cadastroLivro(elementos):
-
+    """
+    Essa função cadastra as informações dos livros e escreve
+    no arquibo elementos.txt as informações criptografadas
+    """
     sair = False
     while sair == False :
         
@@ -656,6 +693,13 @@ def cadastroLivro(elementos):
             sair = False
 
 def buscaLivros(login):
+    """
+    Essa função busca os livros que estão cadastrados de duas formas:
+    Primeira forma ele busca todos livros que estão no sistema e printa 
+    todas as informções de forma ordenada.
+    Segunda forma efetua a busca pelo nome do autor e se encontrado 
+    as informações são printadas na tela
+    """
     sair = False
     while sair == False:
         dicElementos = lerArquivoElementos()
@@ -728,7 +772,12 @@ def buscaLivros(login):
             sair_2 = True
 
 def editarLivros():
+    """
+    Essa função edita todas informações do livro, e cada usuário só pode editar os livros que o mesmo cadastrou.
+    Para que a edição seja iniciada é preciso saber o ISBN do livro 
+    assim que o ISBN  for encontrado no sistema a aba de edição ira aparecer na tela.
 
+    """
     print(">>>Edição de Livro(s)<<<""\n")
     print("Confirme seu login e senha para alterar informações.""\n")
     login = str(input("Digite o seu login: "))
@@ -896,7 +945,11 @@ def editarLivros():
         print("Login ou senha incorretos, tente novamente.")            
 
 def removerLivros():
-
+    """
+    Essa função remove oslivros do sistema e cada usuário só pode remover os livros que o mesmo cadastrou.
+    OBS: o ADM pode remover qualquer livro.
+    Para remover é preciso saber o ISBN após digitar o login e apertar enter o livro selecionado será removido.
+    """
     print("Confirme seu login e senha para remover livro(s).""\n")
     login = str(input("Digite o seu login: "))
     senha = str(input("Digite sua senha: "))
@@ -973,7 +1026,10 @@ def removerLivros():
         print("Login ou senha incorreto, tente novamente.""\n")
 
 def logSystem(login,acao):
-
+    """
+    Essa função recebe como parâmeto o login, ação e importa a data e a hora/m/s 
+    para que o login, ação data e hora/m/s sejam registradas no arquivo log.txt.
+    """
     from datetime import datetime
 
     dataHora = datetime.now()
@@ -985,7 +1041,11 @@ def logSystem(login,acao):
     arquivo.close()
 
 def menu(checarNivelAcesso):
-    
+    """
+    Essa função é chamada após a checagem do acesso e do nível de acesso, se for TRUE o menu
+    é printado na tela de acordo com o nível de acesso do usuário e dessa forma o usuário poderá
+    utilizar o programa.
+    """
     pegarRetorno = checarNivelAcesso
     nivel = pegarRetorno[0]
     login = pegarRetorno[1]
