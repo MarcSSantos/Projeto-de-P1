@@ -1041,6 +1041,7 @@ def logSystem(login,acao):
     arquivo.close()
 
 def menu(checarNivelAcesso):
+
     """
     Essa função é chamada após a checagem do acesso e do nível de acesso, se for TRUE o menu
     é printado na tela de acordo com o nível de acesso do usuário e dessa forma o usuário poderá
@@ -1203,3 +1204,8 @@ def menu(checarNivelAcesso):
                     return acesso()
 
 acesso()
+
+###Instrução###
+#Para acesar como administrador(ra) 
+#Login: adm
+#Senha: adm
