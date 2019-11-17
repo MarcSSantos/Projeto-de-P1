@@ -1203,8 +1203,9 @@ def menu(checarNivelAcesso):
                     print("Programa encerrado""\n")
                     return acesso()
 
+acesso()
+
 ###Instrução###
 #Para acesar como administrador(ra) 
 #Login: adm
 #Senha: adm
-acesso()
