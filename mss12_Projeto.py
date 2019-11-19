@@ -1209,4 +1209,3 @@ acesso()
 #Para acesar como administrador(ra) 
 #Login: adm
 #Senha: adm
-#tentando up
