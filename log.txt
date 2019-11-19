@@ -1,0 +1,24 @@
+ADM  cadastrou o livro PONTO DE IMPACTO.	19/11/19 08:39:55
+ADM  buscou por todos os livros de forma ordenada. 	19/11/19 08:40:51
+ADM  buscou por todos os livros de forma ordenada. 	19/11/19 08:40:59
+ADM  buscou pelo livro PONTO DE IMPACTO.	19/11/19 08:41:26
+ADM  removeu o livro 1234.	19/11/19 08:45:20
+ADM  cadastrou o livro PONTO.	19/11/19 08:46:38
+ADM  cadastrou o livro FELIZ.	19/11/19 08:47:09
+ADM  removeu o livro 123.	19/11/19 08:47:35
+ADM  removeu o livro 456.	19/11/19 08:47:44
+ADM  buscou por todos usuários.	19/11/19 08:51:01
+ADM  buscou por todos usuários.	19/11/19 08:51:01
+ADM  buscou por todos usuários.	19/11/19 08:51:01
+ADM  buscou pelo usuário MARC.	19/11/19 08:53:21
+ADM  buscou por todos usuários.	19/11/19 08:54:03
+ADM  buscou por todos usuários.	19/11/19 08:54:03
+ADM  buscou por todos usuários.	19/11/19 08:54:03
+ADM  buscou por todos usuários.	19/11/19 08:57:02
+ADM  alterou o nível de acesso do usuário RAY.	19/11/19 08:57:36
+RAY  buscou por todos usuários.	19/11/19 08:57:49
+ADM  buscou por todos usuários.	19/11/19 09:04:01
+RAY  buscou por todos usuários.	19/11/19 09:04:24
+ADM  removeu o usuário MARC.	19/11/19 09:05:02
+ADM  removeu o usuário RAY.	19/11/19 09:05:08
+ADM  tentou remover o usuário FS.Usuário não encontrado.	19/11/19 09:05:15

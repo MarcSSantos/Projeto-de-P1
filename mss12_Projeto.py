@@ -306,10 +306,12 @@ def buscarUsuario(login):
             dicionarioOrdenado = ordenarUsuarios(dicUsuarios)
     
             for x in dicionarioOrdenado.items():
-                print(" Login:",x[0],"\n","Senha:",x[1][0],"\n","Nível de acesso:",x[1][1],"\n")
-                acao = " buscou pelo usuário " + x[0] + "."
-                logSystem(login,acao)
-                sair = True 
+                if x[0] != "ADM":
+                    print(" Login:",x[0],"\n","Senha:",x[1][0],"\n","Nível de acesso:",x[1][1],"\n")
+
+            acao = " buscou por todos usuários."
+            logSystem(login,acao)
+            sair = True
 
         elif forma == 2:
             buscar = str(input("Digite o login do usuário a ser buscado: "))
@@ -491,7 +493,6 @@ def lerArquivoElementos():
     d = listaChaves[0]
     n = listaChaves[1]
 
-
     arquivo = open("elementos.txt", "r")
     linhas = arquivo.readlines()
     arquivo.close()
@@ -535,9 +536,6 @@ def lerArquivoElementos():
                 listaDesCrip2.append(listaDesCrip)
                 listaDesCrip = [] 
                 listaLetras = []
-    print(elementos)
-
-
 
     return elementos
 
@@ -723,7 +721,7 @@ def buscaLivros(login):
                                 "Edição:",x[3],"\n""Quantidade:",x[4],"\n""Estado do livro:",x[5],"\n"
                                 "Usuário que adicionou o(s) livro(s):",x[6],"\n")
 
-                acao = " buscou por todos os livros de forma ordenada. "
+                acao = " buscou por todos os livros. "
                 logSystem(login,acao)
                 sair = True
 
@@ -950,7 +948,7 @@ def removerLivros():
     OBS: o ADM pode remover qualquer livro.
     Para remover é preciso saber o ISBN após digitar o login e apertar enter o livro selecionado será removido.
     """
-    print("Confirme seu login e senha para remover livro(s).""\n")
+    print("Confirme seu login e senha para remover o livro.""\n")
     login = str(input("Digite o seu login: "))
     senha = str(input("Digite sua senha: "))
     login = login.upper()
@@ -990,7 +988,7 @@ def removerLivros():
                         sair = True
 
                         if recebeLivros == {}:
-                            print("Lista de livros se encontra vazia.""\n")
+                            print("Sua lista de livros se encontra vazia.""\n")
                             sair = True
 
                     elif validarLogin == False:
