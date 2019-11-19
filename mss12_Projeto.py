@@ -83,9 +83,7 @@ def escreveArq(usuarios):
         arquivo.write(x[0]+"\t")
         arquivo.write(x[1][0]+"\t")
         arquivo.write(x[1][1]+ "\n")
-        #arquivo.write("\n")
-        
-        
+
     arquivo.close()
     
     return usuarios
@@ -158,8 +156,6 @@ def acesso():
     usuário tiver devidamente cadastro ele irá acessar o programa de acordo com o seu nível de acesso, pois logo após a 
     chacagem do acesso é feita a verificação do nível de acesso para que o usuário seja encaminhado para a sua aba especifica.
     """
-
-
     usuarios = lerArquivo()
     sair = False
     while sair == False:
@@ -214,7 +210,6 @@ def cadastrar(usuarios):
     ela solicita o login e um senha para que o usuário seja registrado no sistema e após o resgistro todas as informações
     são criptografadas e armazendas no arquivo usuario.txt
     """
-
     print("")
     print("***Criação do login de acesso***""\n")
     
@@ -226,31 +221,36 @@ def cadastrar(usuarios):
         login = login.upper()
         print("")
         nivelDeAcesso = "3"
+        chequeLogin = True
         for x in login:
             if x == " ":
-                login = True
+                chequeLogin = False
 
-        if login == True:
+        if chequeLogin == False:
             print(print("O login não pode conter espaços, tente novamente. EX: Maria, João""\n"))
-            flag = False
+            flag = True
+            return acesso()
                     
         else:
-            flag = True
             igual = login in usuarios.keys()#checa se o longin já existe
             if igual == False:
 
+                for x in senha:
+                    if senha == " ":
+                        print("Senha nao poder conter espaços, digite novamente.""\n")
+                        return acesso()
 
                 if len(senha) < 1:
                     print("Senha menor do que o tamanho desejado, digite novamente.""\n")
-                    
-                else:
+                    return acesso()
+
+                else:    
                     usuarios[login] =(senha,nivelDeAcesso)
-                    
+                    print("Conta Criada com sucesso.""\n")
                     flag = True
             else:
-                print("Login",login,"já cadastrado. Crie um login diferente.")
-
-            print("Conta Criada com sucesso.""\n")
+                print("Login",login,"já cadastrado. Crie um login diferente.""\n")
+                return acesso()
     
     usuariosCrip =  criptografarUsuarios(usuarios)
     escreveArq(usuariosCrip)
@@ -524,18 +524,18 @@ def lerArquivoElementos():
                     for y in x:
                         if y != "+":
                             palavra += y
-                        if y == " ":
-                            palavra += " "
+                
                         if y == "+":
                             listaDesCrip.append(palavra)
                             palavra = ""
                 
                 elementos[listaDesCrip[0]] = (listaDesCrip[1],listaDesCrip[2],listaDesCrip[3],listaDesCrip[4],
                                               listaDesCrip[5],listaDesCrip[6],listaDesCrip[7])
+                
                 listaDesCrip2.append(listaDesCrip)
                 listaDesCrip = [] 
                 listaLetras = []
-
+    print(elementos)
 
 
 
