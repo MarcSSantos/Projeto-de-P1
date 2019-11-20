@@ -1190,6 +1190,6 @@ def menu(checarNivelAcesso):
 acesso()
 
 ###Instrução###
-#Para acesar como administrador(ra) 
+#Para acessar como administrador(ra) 
 #Login: adm
 #Senha: adm
