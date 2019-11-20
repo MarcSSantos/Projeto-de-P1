@@ -99,7 +99,6 @@ def criptografarUsuarios(usuarios):
     arquivo.close()
     e = int(eliminarBarraN(linhas[0]))
     n = int(linhas[1])
-
     
     userEncriptado = {}
     listaValores = []
@@ -617,8 +616,7 @@ def escreveArqElementos(elementos):
         arquivo.write(x[1][4]+"\t")
         arquivo.write(x[1][5]+"\t")
         arquivo.write(x[1][6]+"\n")
-        
-        
+                
     arquivo.close()
     return elementos
 
@@ -670,8 +668,6 @@ def cadastroLivro(elementos):
                 acao = " cadastrou o livro " + nome + "."
                 logSystem(login,acao)
                 sair_3 = True
-                
- 
     
         sair_3 = False
         while sair_3 == False:
@@ -811,7 +807,6 @@ def editarLivros():
                                 "Estado do livro:",x[1][5],"\n""Usuário que adicionou o(s) livro(s):",x[1][6],"\n")
                             sair = True
                             
-
                 elif opcao == 2:
             
                     flag = False
@@ -917,7 +912,6 @@ def editarLivros():
                             acao = " tentou editar alguma informação " + isbn + " Não encontrado."
                             logSystem(login,acao)
                             flag = True
-
 
             sair_2 = False
             while sair_2 == False:
@@ -1080,28 +1074,23 @@ def menu(checarNivelAcesso):
 
                     removerUsuarios(login)
                     
-
                 elif menu == 4:
 
                     elementos = lerArquivoElementos()
                     cadastroLivro(elementos) 
                     
-
                 elif menu == 5:
 
-                    buscaLivros(login)
-                    
+                    buscaLivros(login)                  
 
                 elif menu == 6:
 
                     editarLivros()
-                    
-                    
+                                      
                 elif menu == 7:
 
                     removerLivros()
                     
-
                 elif menu == 8:
 
                     print("Programa encerrado")
@@ -1134,7 +1123,6 @@ def menu(checarNivelAcesso):
                     elementos = lerArquivoElementos()
                     cadastroLivro(elementos)
                     
-
                 elif menu == 3:
 
                     editarLivros()
@@ -1176,8 +1164,7 @@ def menu(checarNivelAcesso):
                 elif menu == 1:
                     
                     elementos = lerArquivoElementos()
-                    cadastroLivro(elementos)
-                    
+                    cadastroLivro(elementos)                  
 
                 elif menu == 2:
 
@@ -1190,8 +1177,7 @@ def menu(checarNivelAcesso):
                 elif menu == 4:
 
                     removerLivros()
-                    
-                    
+                                       
                 elif menu == 5:
                     print("Programa encerrado")
                     sair = True
