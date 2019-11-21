@@ -84,7 +84,7 @@ def escreveArq(usuarios):
         arquivo.write(x[1][1]+ "\n")
 
     arquivo.close()
-    
+    escreveRelatorioUsuarios()
     return usuarios
 
 def criptografarUsuarios(usuarios):
@@ -173,6 +173,8 @@ def acesso():
             
             if checar == True:
                 print("")
+                acao = " acessou o programa."
+                logSystem(login,acao)
                 return menu(checarNivelAcesso(login))
             
             else:
@@ -468,6 +470,26 @@ def removerUsuarios(login):
         elif fechar == "Y":
             sair_2 = True
 
+def escreveRelatorioUsuarios():
+    """
+    Essa função escreve um relatório no arquivo relatorioUsuarios.txt na qual são escritas as informações 
+    atuais dos livros cadastrados.
+    """
+    usuarios = lerArquivo()
+    UserOrdenados = ordenarUsuarios(usuarios)
+    lista = UserOrdenados.items()
+    arquivo = open("RelatorioUsuarios.txt", "w")
+    ifem = "-"
+    divisor = ifem *300
+    for x in lista:
+        arquivo.write("Login: " + x[0]+"\n")
+        arquivo.write("Senha: " + x[1][0]+"\n")
+        arquivo.write("Nivel de acesso: " + x[1][1]+"\n")
+        
+        arquivo.write(divisor+"\n")
+
+    arquivo.close()
+
 def lerArquivoElementos():
     """
     Essa função lê todos os elementos(informações dos livros) que estão salvos no arquivo elementos.txt
@@ -617,7 +639,7 @@ def escreveArqElementos(elementos):
         arquivo.write(x[1][6]+"\n")
                 
     arquivo.close()
-    escreveRelatorio()
+    escreveRelatorioElementos()
     return elementos
 
 def cadastroLivro(elementos):
@@ -1017,25 +1039,26 @@ def removerLivros():
     else:
         print("Login ou senha incorreto, tente novamente.""\n")
 
-def escreveRelatorio():
+def escreveRelatorioElementos():
     """
-    Essa função escreve um relatório no arquivo relatorio.txt na qual são escritas as informações 
+    Essa função escreve um relatório no arquivo relatorioElementos.txt na qual são escritas as informações 
     atuais dos livros cadastrados.
     """
     elementos = lerArquivoElementos()
-    arquivo = open("Relatorio.txt", "w")
-    lista = elementos.items()
+    elementosOrdenados = ordenarElementos(elementos)
+    lista = elementosOrdenados.items()
+    arquivo = open("RelatorioElementos.txt", "w")
     ifem = "-"
     divisor = ifem *300
     for x in lista:
-        arquivo.write("ISBN:" + x[0]+"\n")
-        arquivo.write("Nome do livro:" + x[1][0]+"\n")
-        arquivo.write("Nome do autor:" + x[1][1]+"\n")
-        arquivo.write("Ano de lançamento:" + x[1][2]+"\t")
-        arquivo.write("Edição do livro:" + x[1][3]+"\n")
-        arquivo.write("Quantidade:" + x[1][4]+"\n")
-        arquivo.write("Estado:" + x[1][5]+"\n")
-        arquivo.write("Usuário:" + x[1][6]+"\n")
+        arquivo.write("ISBN: " + x[0]+"\n")
+        arquivo.write("Nome do livro: " + x[1][0]+"\n")
+        arquivo.write("Nome do autor: " + x[1][1]+"\n")
+        arquivo.write("Ano de lançamento: " + x[1][2]+"\t")
+        arquivo.write("Edição do livro: " + x[1][3]+"\n")
+        arquivo.write("Quantidade: " + x[1][4]+"\n")
+        arquivo.write("Estado: " + x[1][5]+"\n")
+        arquivo.write("Usuário: " + x[1][6]+"\n")
         arquivo.write(divisor+"\n")
 
     arquivo.close()
@@ -1115,12 +1138,15 @@ def menu(checarNivelAcesso):
                     removerLivros()
                     
                 elif menu == 8:
-
+                    acao = " Encerrou o programa."
+                    logSystem(login,acao)
                     print("Programa encerrado")
                     sair = True
                     sair_2 = True
 
                 elif menu == 9:
+                    acao = " fez logout no programa."
+                    logSystem(login,acao)
                     print("Programa encerrado")
                     return acesso()
                     
@@ -1163,11 +1189,15 @@ def menu(checarNivelAcesso):
                     editarUsuario(login)
                     
                 elif menu == 7:
+                    acao = " Encerrou o programa."
+                    logSystem(login,acao)
                     print("Programa encerrado""\n")
                     sair = True
                     sair_2 = True
 
                 elif menu == 8:
+                    acao = " fez logout no programa."
+                    logSystem(login,acao)
                     print("Programa encerrado""\n")
                     return acesso()
                     
@@ -1202,11 +1232,15 @@ def menu(checarNivelAcesso):
                     removerLivros()
                                        
                 elif menu == 5:
+                    acao = " Encerrou o programa."
+                    logSystem(login,acao)
                     print("Programa encerrado")
                     sair = True
                     sair_2 = True
 
                 elif menu == 6:
+                    acao = " fez logout no programa."
+                    logSystem(login,acao)
                     print("Programa encerrado""\n")
                     return acesso()
 
