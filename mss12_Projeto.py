@@ -1,4 +1,3 @@
-
 def eliminarBarraN(string):
     """
     Essa função elimina os /n dos conteúdos que as variáveis recebem.
@@ -618,6 +617,7 @@ def escreveArqElementos(elementos):
         arquivo.write(x[1][6]+"\n")
                 
     arquivo.close()
+    escreveRelatorio()
     return elementos
 
 def cadastroLivro(elementos):
@@ -1016,6 +1016,29 @@ def removerLivros():
             
     else:
         print("Login ou senha incorreto, tente novamente.""\n")
+
+def escreveRelatorio():
+    """
+    Essa função escreve um relatório no arquivo relatorio.txt na qual são escritas as informações 
+    atuais dos livros cadastrados.
+    """
+    elementos = lerArquivoElementos()
+    arquivo = open("Relatorio.txt", "w")
+    lista = elementos.items()
+    ifem = "-"
+    divisor = ifem *300
+    for x in lista:
+        arquivo.write("ISBN:" + x[0]+"\n")
+        arquivo.write("Nome do livro:" + x[1][0]+"\n")
+        arquivo.write("Nome do autor:" + x[1][1]+"\n")
+        arquivo.write("Ano de lançamento:" + x[1][2]+"\t")
+        arquivo.write("Edição do livro:" + x[1][3]+"\n")
+        arquivo.write("Quantidade:" + x[1][4]+"\n")
+        arquivo.write("Estado:" + x[1][5]+"\n")
+        arquivo.write("Usuário:" + x[1][6]+"\n")
+        arquivo.write(divisor+"\n")
+
+    arquivo.close()
 
 def logSystem(login,acao):
     """
