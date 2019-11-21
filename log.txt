@@ -1,0 +1,26 @@
+ADM  acessou o programa.	21/11/19 15:53:04
+ADM  Encerrou o programa.	21/11/19 15:53:07
+ADM  acessou o programa.	21/11/19 16:09:21
+ADM  cadastrou o livro PONTO DE IMPACTO.	21/11/19 16:09:50
+ADM  Encerrou o programa.	21/11/19 16:09:55
+ADM  acessou o programa.	21/11/19 16:30:14
+ADM  Criou um relátorio.	21/11/19 16:30:17
+ADM  Criou um relátorio.	21/11/19 16:30:33
+MARC  acessou o programa.	21/11/19 16:37:50
+MARC  Criou um relátorio.	21/11/19 16:37:53
+MARC  fez logout no programa.	21/11/19 16:38:42
+ADM  acessou o programa.	21/11/19 16:39:12
+ADM  alterou o nível de acesso do usuário MARC.	21/11/19 16:39:22
+ADM  fez logout no programa.	21/11/19 16:39:28
+MARC  acessou o programa.	21/11/19 16:39:37
+MARC  Criou um relátorio.	21/11/19 16:40:05
+MARC  Encerrou o programa.	21/11/19 16:40:10
+MARC  acessou o programa.	21/11/19 16:40:24
+ADM  cadastrou o livro FELIZ NAO VELHO.	21/11/19 16:40:50
+MARC  Criou um relátorio.	21/11/19 16:40:56
+MARC  Encerrou o programa.	21/11/19 16:41:45
+MARC  acessou o programa.	21/11/19 16:42:20
+MARC  Criou um relátorio.	21/11/19 16:42:21
+MARC  Encerrou o programa.	21/11/19 16:42:53
+ADM  acessou o programa.	21/11/19 16:43:18
+ADM  removeu o usuário MARC.	21/11/19 16:43:32

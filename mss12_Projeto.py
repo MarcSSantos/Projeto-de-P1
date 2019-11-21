@@ -1063,6 +1063,36 @@ def escreveRelatorioElementos():
 
     arquivo.close()
 
+def csv():
+    """
+    Essa função cria um relatório dos livros cadastrados no sistema
+    essa relátorio é criado em formato csv dentro da pasta onde se contra o programa.
+    """
+    import csv
+
+    elementos = lerArquivoElementos()
+    elementosOrdenados = ordenarElementos(elementos)
+    listaElementos = elementosOrdenados.items()
+
+    with open('relatorioElementos.csv', 'w', newline='') as csvfile:
+        escrever = csv.writer(csvfile, delimiter=';')
+
+        escrever.writerow(['>>> RELATÓRIO DOS ELEMENTOS <<<'])
+        escrever.writerow([''])
+
+        for x in listaElementos:
+            escrever.writerow(['ISBN']+[x[0]])
+            escrever.writerow(['NOME DO LIVRO']+[x[0][1]])
+            escrever.writerow(['NOME DO AUTOR:']+[x[1][1]])
+            escrever.writerow(['ANO DE LANÇAMENTO']+[x[1][2]])
+            escrever.writerow(['EDIÇÃO DO LIVRO']+[x[1][3]])
+            escrever.writerow(['QUANTIDADE']+[x[1][4]])
+            escrever.writerow(['ESTADO']+[x[1][5]])
+            escrever.writerow(['USUÁRIO']+[x[1][6]])
+            escrever.writerow([''])
+            
+    return print("Relatório criado com sucesso""\n")
+
 def logSystem(login,acao):
     """
     Essa função recebe como parâmeto o login, ação e importa a data e a hora/m/s 
@@ -1101,10 +1131,10 @@ def menu(checarNivelAcesso):
                                  "1 - Buscar usuário(s)""\n""2 - Editar usuário(s)""\n"
                                  "3 - Remover usuário(s)""\n""4 - Cadastrar livro(s)""\n"
                                  "5 - Buscar Livro(s)""\n""6 - Editar informações do(s) livro(s) cadastrado(s)""\n"
-                                 "7 - Remover livro(s)(Via ISBN)""\n""8 - Encerrar o programa""\n"
-                                 "9 - Logout""\n"))
+                                 "7 - Remover livro(s)(Via ISBN)""\n""8 - Criar relatório""\n"
+                                 "9 - Encerrar o programa""\n""10 - Logout""\n"))
                 
-                if menu < 1 or menu > 9:
+                if menu < 1 or menu > 10:
                     print("")
                     print("Digito incorrento, tente novamente.""\n")
                 
@@ -1136,31 +1166,39 @@ def menu(checarNivelAcesso):
                 elif menu == 7:
 
                     removerLivros()
-                    
+
                 elif menu == 8:
+
+                    csv()
+                    acao = " Criou um relátorio."
+                    logSystem(login,acao)
+                    sair = True
+
+                elif menu == 9:
                     acao = " Encerrou o programa."
                     logSystem(login,acao)
                     print("Programa encerrado")
                     sair = True
                     sair_2 = True
-
-                elif menu == 9:
+                    
+                elif menu == 10:
                     acao = " fez logout no programa."
                     logSystem(login,acao)
                     print("Programa encerrado")
+                    
                     return acesso()
                     
             elif nivel == "2":
                 
-                menu = int(input("Menu""\n""\n"
+                menu = int(input(">>>Menu<<<""\n""\n"
                                  "1 - Buscar usuários""\n""2 - Cadastrar livro(s)""\n"
                                  "3 - Editar informações do(s) livro(s) cadastrado(s)""\n"
                                  "4 - Bucar livro(s)""\n""5 - Remover livro(s)""\n"
-                                 "6 - Editar usuário""\n""7 - Encerrar o programa""\n"
-                                 "8 - Logout""\n"))
+                                 "6 - Editar usuário""\n""7 - Criar relatório""\n"
+                                 "8 - Encerrar o programa""\n""9 - Logout""\n"))
 
 
-                if menu < 1 or menu > 8:
+                if menu < 1 or menu > 9:
                     print("Digito incorrento, tente novamente.""\n")
 
                 elif menu == 1:
@@ -1187,15 +1225,23 @@ def menu(checarNivelAcesso):
                 elif menu == 6:
                     
                     editarUsuario(login)
-                    
+                
                 elif menu == 7:
+
+                    csv()
+                    acao = " Criou um relátorio."
+                    logSystem(login,acao)
+                    sair = True
+
+                    
+                elif menu == 8:
                     acao = " Encerrou o programa."
                     logSystem(login,acao)
                     print("Programa encerrado""\n")
                     sair = True
                     sair_2 = True
 
-                elif menu == 8:
+                elif menu == 9:
                     acao = " fez logout no programa."
                     logSystem(login,acao)
                     print("Programa encerrado""\n")
@@ -1203,15 +1249,13 @@ def menu(checarNivelAcesso):
                     
             elif nivel == "3":
 
-                menu = int(input("Menu""\n""\n"
-                                 "1 - Cadastrar livro(s)""\n"
-                                 "2 - Editar informações do(s) livro(s) cadastrado(s)""\n"
-                                 "3 - Buscar livro(s)""\n"
-                                 "4 - Remover livro(s)""\n"
-                                 "5 - Encerrar o programa""\n"
-                                 "6 - Logout""\n"))
+                menu = int(input(">>>Menu<<<""\n""\n"
+                                 "1 - Cadastrar livro(s)""\n""2 - Editar informações do(s) livro(s) cadastrado(s)""\n"
+                                 "3 - Buscar livro(s)""\n""4 - Remover livro(s)""\n"
+                                 "5 - Criar Relatório""\n""6 - Encerrar o programa""\n"
+                                 "7 - Logout""\n"))
                 
-                if menu < 1 or menu > 6:
+                if menu < 1 or menu > 7:
                     print("Digito incorrento, tente novamente.""\n")
                 
                 elif menu == 1:
@@ -1230,19 +1274,27 @@ def menu(checarNivelAcesso):
                 elif menu == 4:
 
                     removerLivros()
-                                       
+                
                 elif menu == 5:
+
+                    csv()
+                    acao = " Criou um relátorio."
+                    logSystem(login,acao)
+                    sair = True
+                                       
+                elif menu == 6:
                     acao = " Encerrou o programa."
                     logSystem(login,acao)
                     print("Programa encerrado")
                     sair = True
                     sair_2 = True
-
-                elif menu == 6:
+                    
+                elif menu == 7:
                     acao = " fez logout no programa."
                     logSystem(login,acao)
                     print("Programa encerrado""\n")
                     return acesso()
+
 
 acesso()
 
